@@ -1489,3 +1489,59 @@ body.mobile-nav-active #mobile-nav-toggle {
     display: inline;
   }
 }
+
+
+/* Video */
+.btn-play-wrap {
+  position: relative;
+  height: 100px;
+  width: 100px
+}
+
+.mx-auto {
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+.btn-play-wrap {
+  position: relative;
+  height: 100px;
+  width: 100px
+}
+.btn-play {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  border-radius: 50%;
+  position: relative;
+  position: absolute;
+  -webkit-transition: .2s all ease;
+  -o-transition: .2s all ease;
+  transition: .2s all ease;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%)
+}
+
+  .btn-play span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      color: #000;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%)
+  }
+
+  .btn-play:hover {
+      width: 80px;
+      height: 80px;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%)
+  }
