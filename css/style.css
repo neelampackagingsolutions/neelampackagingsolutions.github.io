@@ -1545,3 +1545,10 @@ body.mobile-nav-active #mobile-nav-toggle {
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%)
   }
+
+  #map {
+    height: 100%;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+  }
