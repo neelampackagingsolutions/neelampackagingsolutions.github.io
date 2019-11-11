@@ -103,12 +103,7 @@ jQuery(document).ready(function($) {
       var service_id = "default_service";
       var template_id = "template_TNOU4XO7";
 
-      emailjs.send(service_id, template_id, template_params).then(function (response) {
-        $("#sendmessage").innerHTML  = "Message Succssfully sent";
-        $('.contactForm').find("input, textarea").val("");
-      }, function (error) {
-        $("#sendmessage").innerHTML  = "Failed to Send message";
-      });
+      emailjs.send(service_id, template_id, template_params);
 
     }
     return false;
