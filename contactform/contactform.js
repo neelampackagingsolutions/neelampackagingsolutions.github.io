@@ -1,12 +1,12 @@
 jQuery(document).ready(function($) {
   "use strict";
-
+ 
   //Contact
   $('form.contactForm').submit(function() {
     var f = $(this).find('.form-group'),
       ferror = false,
       emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
-
+      emailjs.init("user_lbNqfIFhHW7eYWIMOs2SV");
     f.children('input').each(function() { // run all inputs
 
       var i = $(this); // current input
@@ -91,27 +91,26 @@ jQuery(document).ready(function($) {
     if (ferror) return false;
     else var str = $(this).serialize();
     var action = $(this).attr('action');
-    if( ! action ) {
-      action = 'contactform/contactform.php';
-    }
-    $.ajax({
-      type: "POST",
-      url: action,
-      data: str,
-      success: function(msg) {
-        // alert(msg);
-        if (msg == 'OK') {
-          $("#sendmessage").addClass("show");
-          $("#errormessage").removeClass("show");
-          $('.contactForm').find("input, textarea").val("");
-        } else {
-          $("#sendmessage").removeClass("show");
-          $("#errormessage").addClass("show");
-          $('#errormessage').html(msg);
-        }
-
+    let searchParams = new URLSearchParams(str);
+    if (!action) {
+      var template_params = {
+        "name": searchParams.get("name"),
+        "email": searchParams.get("email"),
+        "subject": searchParams.get("subject"),
+        "message": searchParams.get("message")
       }
-    });
+
+      var service_id = "default_service";
+      var template_id = "template_TNOU4XO7";
+
+      emailjs.send(service_id, template_id, template_params).then(function (response) {
+        $("#sendmessage").innerHTML  = "Message Succssfully sent";
+        $('.contactForm').find("input, textarea").val("");
+      }, function (error) {
+        $("#sendmessage").innerHTML  = "Failed to Send message";
+      });
+
+    }
     return false;
   });
 
