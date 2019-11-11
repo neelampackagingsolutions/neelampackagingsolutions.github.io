@@ -104,7 +104,7 @@ jQuery(document).ready(function($) {
       var template_id = "template_TNOU4XO7";
 
       emailjs.send(service_id, template_id, template_params);
-      $("#sendmessage").style.display = "block";;
+      $("#sendmessage").show();
       $('.contactForm').find("input, textarea").val("");
     }
     return false;
